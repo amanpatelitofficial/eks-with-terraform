@@ -1,30 +1,28 @@
-variable "region" {
-  description = "AWS region"
+variable "project_id" {
   type        = string
+  description = "The Google Project ID"
 }
 
-variable "vpc_cidr_block" {
-  description = "CIDR block for the VPC"
+variable "vpc_cidr" {
   type        = string
+  description = "Public Subnet CIDR values"
+  default     = "10.0.0.0/16"
 }
 
-variable "public_subnet_cidr_block" {
-  description = "CIDR block for the public subnet"
-  type        = string
+variable "cidr_public_subnet" {
+  type        = list(string)
+  description = "Public Subnet CIDR values"
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
-variable "private_subnet_cidr_block" {
-  description = "CIDR block for the private subnet"
-  type        = string
+variable "cidr_private_subnet" {
+  type        = list(string)
+  description = "Private Subnet CIDR values"
+  default     = ["10.0.3.0/24", "10.0.4.0/24"]
 }
 
-variable "availability_zone_a" {
-  description = "Availability Zone A"
-  type        = string
+variable "availability_zone" {
+ type        = list(string)
+ description = "Availability Zones"
+ default     = ["eu-central-1a", "eu-central-1b"]
 }
-
-variable "availability_zone_b" {
-  description = "Availability Zone B"
-  type        = string
-}
-
